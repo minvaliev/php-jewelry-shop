@@ -1,5 +1,6 @@
 <?php
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 ?>
 
 <?php
@@ -37,22 +38,27 @@ if ($session['basket']) {
 
             <h2>Оформление заказа</h2>
 
-            <?php $form = ActiveForm::begin(); ?>
+            <form method="POST" action="<?=Url::to(['basket/order'])?>">
+                <p>Регистрация на сайте</p>
+                <input type="text" name="name" required placeholder="Enter your name" > <br>
+                <input type="email" name="email" required placeholder="Enter email"> <br>
+                <input type="text" name="phone" required placeholder="Enter your phone"> <br>
+                <input type="text" name="adress" required placeholder="Enter your adress"> <br>
+                <input  class="btn-grey" type="submit">
+                <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+<!--                <div class="total-count">-->
+<!--                    <h3 style="display: none" class="total-quantity">--><?//=$session['product.totalQuantity']?><!--</h3>-->
+<!--                    <h3>Total to pay: <strong>--><?//=$session['product.totalSum']?><!--</strong></h3>-->
+<!--                    <!--                <a href="#" class="btn-grey">Finalize and pay</a>-->-->
+<!--                    <input  class="btn-grey" type="submit">-->
+<!--                </div>-->
+            </form>
 
-            <?= $form->field($order, 'name') ?>
-            <?= $form->field($order, 'email') ?>
-            <?= $form->field($order, 'adress') ?>
-            <?= $form->field($order, 'phone') ?>
-
-            <button class="btn btn-success">Оформить заказ</button>
-
-            <?php $form = ActiveForm::end(); ?>
-
-            <div class="total-count">
-                <h3 style="display: none" class="total-quantity"><?=$session['product.totalQuantity']?></h3>
-                <h3>Total to pay: <strong><?=$session['product.totalSum']?></strong></h3>
-                <a href="#" class="btn-grey">Finalize and pay</a>
-            </div>
+            <?php
+            echo "<pre>";
+            var_dump($_POST);
+            echo "</pre>";
+            ?>
 
         </div>
         <!-- / content -->
