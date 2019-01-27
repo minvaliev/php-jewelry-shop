@@ -37,6 +37,7 @@ class Basket extends ActiveRecord
         $quantity = $_SESSION['basket'][$id]['productQuantity'];
         $price = $_SESSION['basket'][$id]['price'] * $quantity;
 
+        $_SESSION['product.totalQuantity'] -= $quantity;
         $_SESSION['product.totalSum'] -= $price;
         unset($_SESSION['basket'][$id]);
     }

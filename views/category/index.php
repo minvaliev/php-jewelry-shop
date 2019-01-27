@@ -6,7 +6,6 @@ $this->title = 'Diana’s jewelry' . ' | ' . 'Home page';
 ?>
 <div class="last-products">
     <h2>Last added products</h2>
-
     <section class="products">
         <?php foreach ($product as $products) {?>
         <article>

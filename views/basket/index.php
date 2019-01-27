@@ -1,4 +1,8 @@
 <?php
+use yii\widgets\ActiveForm;
+?>
+
+<?php
 if ($session['basket']) {
 ?>
 <div id="body-basket">
@@ -31,8 +35,22 @@ if ($session['basket']) {
                 </table>
             </div>
 
+            <h2>Оформление заказа</h2>
+
+            <?php $form = ActiveForm::begin(); ?>
+
+            <?= $form->field($order, 'name') ?>
+            <?= $form->field($order, 'email') ?>
+            <?= $form->field($order, 'adress') ?>
+            <?= $form->field($order, 'phone') ?>
+
+            <button class="btn btn-success">Оформить заказ</button>
+
+            <?php $form = ActiveForm::end(); ?>
+
             <div class="total-count">
-                <h3>Total to pay: <strong><?='$' . $session['product.totalSum']?></strong></h3>
+                <h3 style="display: none" class="total-quantity"><?=$session['product.totalQuantity']?></h3>
+                <h3>Total to pay: <strong><?=$session['product.totalSum']?></strong></h3>
                 <a href="#" class="btn-grey">Finalize and pay</a>
             </div>
 

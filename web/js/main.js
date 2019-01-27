@@ -12,6 +12,12 @@ $(document).ready(function() {
 				console.log(res);
 				$('#body-basket').html(res);
 				// $('.menu-quantity').html('('+ $('.total-quantity').html()+')');
+				if ($('.total-quantity').html())  {
+					$('.menu-quantity').html($('.total-quantity').html());
+				}
+				else {
+					$('.menu-quantity').html ('0');
+				}
 			},
 			error: function () {
 				alert ("error");
@@ -31,9 +37,10 @@ $(document).ready(function() {
 			data: {name: name},
 			type: 'GET',
 			success: function (res) {
-				// console.log(res);
-				// $('#777').html(res);
-				// $('.menu-quantity').html('('+ $('.total-quantity').html()+')');
+				console.log(res);
+				// $('.total-quantity').html(res);
+				$('.menu-quantity').html(+$('.menu-quantity').html()+1);
+				$('.menu-sum').html($('.total-sum').html());
 			},
 			error: function () {
 				alert ("error");

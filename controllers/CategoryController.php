@@ -11,6 +11,7 @@ namespace app\controllers;
 
 use yii\web\Controller;
 use app\models\Product;
+use Yii;
 
 class CategoryController extends Controller
     {

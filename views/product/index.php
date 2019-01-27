@@ -33,7 +33,7 @@
                     <div class="actions">
                         <label>Quantity:</label>
                         <select><option>1</option></select>
-                        <a href="#" class="btn-grey">Add to cart</a>
+                        <a href="#" data-name="<?=$product['name']?>" class="btn-grey btn-add">Add to cart</a>
                     </div>
                 </div>
             </div>

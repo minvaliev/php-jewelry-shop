@@ -10,12 +10,18 @@ namespace app\controllers;
 
 
 use app\models\Basket;
+use app\models\Order;
 use app\models\Product;
 use yii\web\Controller;
 use Yii;
 
 class BasketController extends Controller
 {
+    public function actionOrder () {
+        $session = Yii::$app->session;
+        $session->open();
+    }
+
     public function actionDelete ($id) {
         $session = Yii::$app->session;
         $session->open();
@@ -32,6 +38,7 @@ class BasketController extends Controller
         $session->open();
 //        $session->remove('basket');
 //        $session->remove('product.totalSum');
+//        $session->remove('product.totalQuantity');
         $basket = new Basket();
         $basket = $basket->addToBasket($product);
         $this->layout = 'basket-layout';
@@ -41,7 +48,9 @@ class BasketController extends Controller
     public function actionOpen () {
         $session = Yii::$app->session;
         $session->open();
+        $order = new Order();
         $this->layout = 'basket-layout';
-        return $this->render('index', compact('session'));
+        return $this->render('index', compact('session', 'order'));
     }
+
 }
