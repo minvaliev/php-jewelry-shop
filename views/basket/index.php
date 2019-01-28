@@ -36,29 +36,53 @@ if ($session['basket']) {
                 </table>
             </div>
 
-            <h2>Оформление заказа</h2>
+            <h2 class="headline">Checkout</h2>
 
             <form method="POST" action="<?=Url::to(['basket/order'])?>">
-                <p>Регистрация на сайте</p>
-                <input type="text" name="name" required placeholder="Enter your name" > <br>
-                <input type="email" name="email" required placeholder="Enter email"> <br>
-                <input type="text" name="phone" required placeholder="Enter your phone"> <br>
-                <input type="text" name="adress" required placeholder="Enter your adress"> <br>
-                <input  class="btn-grey" type="submit">
-                <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
-<!--                <div class="total-count">-->
-<!--                    <h3 style="display: none" class="total-quantity">--><?//=$session['product.totalQuantity']?><!--</h3>-->
-<!--                    <h3>Total to pay: <strong>--><?//=$session['product.totalSum']?><!--</strong></h3>-->
-<!--                    <!--                <a href="#" class="btn-grey">Finalize and pay</a>-->-->
+                <div class="input">
+                    <input class="input-one" type="text" name="name" required placeholder="Enter your name" > <br>
+                    <input class="input-one" type="email" name="email" required placeholder="Enter email"> <br>
+                    <input class="input-one" type="text" name="phone" required placeholder="Enter your phone"> <br>
+                    <input class="input-one"type="text" name="adress" required placeholder="Enter your adress"> <br>
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                </div>
+                <div class="total-count">
+                    <h3 style="display: none" class="total-quantity"><?=$session['product.totalQuantity']?></h3>
+                    <h3>Total to pay: $<strong><?=$session['product.totalSum']?></strong></h3>
 <!--                    <input  class="btn-grey" type="submit">-->
-<!--                </div>-->
+                    <button class="btn-grey" type="submit" >SEND</button>
+                </div>
             </form>
 
-            <?php
-            echo "<pre>";
-            var_dump($_POST);
-            echo "</pre>";
-            ?>
+            <style>
+                .headline {
+                    padding-top: 25px;
+                    text-align: center;
+                    font-size: 20px;
+                }
+                .input {
+                    padding-top: 15px;
+                    padding-bottom: -20px;
+                    top: 10px;
+                    width: 48%;
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+
+                }
+                .input-one {
+                    padding-left: 6px;
+                    height: 40px;
+                    font-size: 17px;
+                    border: 1px solid #d3d3d3;
+                }
+
+                ::-webkit-input-placeholder {color:#000000; opacity:0.4;}/* webkit */
+                ::-moz-placeholder          {color:#000000; opacity:0.4;}/* Firefox 19+ */
+                :-moz-placeholder           {color:#000000; opacity:0.4;}/* Firefox 18- */
+                :-ms-input-placeholder      {color:#000000; opacity:0.4;}/* IE */
+
+            </style>
 
         </div>
         <!-- / content -->

@@ -40,9 +40,6 @@ class BasketController extends Controller
                     ->setTo($order->email)
                     ->setSubject('Ваш заказ принят')
                     ->send();
-                $session->remove('basket');
-                $session->remove('product.totalSum');
-                $session->remove('product.totalQuantity');
                 $this->layout = 'basket-layout';
                 return $this->render('success', compact('session', 'currentId'));
             }

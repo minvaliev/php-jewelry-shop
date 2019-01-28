@@ -679,7 +679,7 @@ h1 {
 	display: block;
 	max-width: 568px;
 	border: 1px solid #d3d3d3;
-	margin: 48px auto 30px;
+	margin: 5px auto 30px;
 	font-family: "Roboto";
 	text-align: center;
 	font-size: 18px;
@@ -704,6 +704,8 @@ h1 {
 	height: 53px;
 	font-family: "Roboto";
 	background-color: #373737;
+	border: 0.1px solid #1b1e21;;
+	border-radius: 20px;
 }
 
 .btn-grey:hover{
