@@ -1,3 +1,7 @@
+<?php
+$this->title = 'Diana’s jewelry' . ' | ' . 'Thank you for the order';
+?>
+
 <h1 style="padding-top: 30px; font-size: 35px;">THANKS FOR YOUR PURCHASE) YOUR ORDER UNDER "<?=$currentId?>" IS ACCEPTED.</h1>
 <h3 style="font-weight: bold;">Your data:</h3>
 <p><i style="font-weight: bold;">Имя:</i> <?=$_POST['name']?></p>

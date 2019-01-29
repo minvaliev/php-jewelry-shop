@@ -4,6 +4,10 @@ use yii\helpers\Url;
 ?>
 
 <?php
+$this->title = 'Diana’s jewelry' . ' | ' . 'Basket';
+?>
+
+<?php
 if ($session['basket']) {
 ?>
 <div id="body-basket">

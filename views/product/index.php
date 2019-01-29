@@ -1,3 +1,6 @@
+<?php
+$this->title = 'Diana’s jewelry' . ' | ' . 'Product Details';
+?>
 
 <div id="body">
     <div class="container">

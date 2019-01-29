@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Url;
 ?>
+<?php
+$this->title = 'Diana’s jewelry' . ' | ' . 'Categories';
+?>
 <div id="body">
         <div class="container">
             <div class="pagination">
